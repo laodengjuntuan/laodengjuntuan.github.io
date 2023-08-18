@@ -15,12 +15,12 @@
 <script setup lang="ts">
     import CalendarDate from './calendar-date.vue'
     import calendarService from './calendar-service'
-    import { ICalendarItem } from 'calendar'
+    import type { ICalendarDate } from 'calendar'
     import { isEqualDate } from './getMonthDateList'
 
     const dateList = calendarService.monthDateList
 
-    function isDateSelected(dateItem: ICalendarItem) {
+    function isDateSelected(dateItem: ICalendarDate) {
         return isEqualDate(dateItem.date, calendarService.selectedDate.value)
     }
 </script>
@@ -29,7 +29,7 @@
     #calendar-table {
         width: 100%;
         height: 204px;
-        
+
         .calendar-content {
             display: flex;
             flex-wrap: wrap;

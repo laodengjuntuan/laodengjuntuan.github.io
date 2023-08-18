@@ -5,7 +5,6 @@
 </template>
 
 <script setup lang="ts">
-    import { withDefaults } from 'vue'
     
     interface IIconProps {
         size?: string | number

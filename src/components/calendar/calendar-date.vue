@@ -13,10 +13,11 @@
 </template>
 
 <script setup lang="ts">
-    import ICalendarItem from 'calendar'
+    // import ICalendarItem from 'calendar'
+    import type { ICalendarDate } from 'calendar'
 
     defineProps<{
-        dateItem: ICalendarItem,
+        dateItem: ICalendarDate,
         isSelected: boolean
     }>()
 </script>
