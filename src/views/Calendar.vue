@@ -3,7 +3,5 @@ import calendar from '../components/calendar/index.vue'
 </script>
 
 <template>
-  <main>
     <calendar />
-  </main>
 </template>
