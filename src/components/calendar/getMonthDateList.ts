@@ -1,6 +1,6 @@
 import type { ICalendarDate } from "calendar"
 
-const DayMS = 23 * 60 * 60 * 1000
+const DayMS = 24 * 60 * 60 * 1000
 
 export function isEqualDate(d1: Date, d2: Date) {
     return d1.getFullYear() === d2.getFullYear() && d1.getMonth() === d2.getMonth() && d1.getDate() === d2.getDate()
@@ -34,6 +34,7 @@ export function getCurrMonthDateList(date: Date) {
     }
     return dateList
 }
+
 export function getPrevTailDateList(date: Date) {
     const dateList: Array<ICalendarDate> = []
     const firstDate = getFirstDate(date)
@@ -54,12 +55,12 @@ export function getPrevTailDateList(date: Date) {
 
 export function getNextHeadDateList(date: Date) {
     const dateList: Array<ICalendarDate> = []
-    const lastDate = getFirstDate(date)
+    const lastDate = getLastDate(date)
     const lastDateTime = lastDate.getTime()
     const lastDateWeek = lastDate.getDay()
 
-    for (let i = 0; i < lastDateWeek; i++) {
-        const currDate = new Date(lastDateTime - (i + 1) * DayMS)
+    for (let i = 0; i < (6 - lastDateWeek); i++) {
+        const currDate = new Date(lastDateTime + (i + 1) * DayMS)
 
         dateList.push({
             date: currDate,
@@ -98,8 +99,6 @@ export function getNextMonthDate(date: Date) {
     return new Date(`${nextYear}/${nextMonth}/${nextDay}`)
 }
 
-
-
 export function getPrevMonthDate(date: Date) {
 
     let prevYear = date.getFullYear()
@@ -118,6 +117,5 @@ export function getPrevMonthDate(date: Date) {
     }
     return new Date(`${prevYear}/${prevMonth}/${prevDay}`)
 }
-
 
 export default getMonthDateList
